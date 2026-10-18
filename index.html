@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mon Portfolio | Développeur Web</title>
+
+    <style>
+        /* 1. Style général de la page */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: auto;
+        }
+
+         body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* 2. Barre de navigation */
+      
+header {
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #334155;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #0f172a;
+}
+
+
+        .logo {
+            color: #60a5fa;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        
+        nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+            background: #1e293b;
+            transform: translateY(-2px);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+        }
+        
+nav a.actif {
+    color: #38bdf8;
+    background: #1e293b;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+
+
+        /* 3. Section d'accueil */
+        .hero {
+            min-height: 420px;
+            padding: 90px 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero p:first-child {
+            color: #60a5fa;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            max-width: 600px;
+            color: #cbd5e1;
+            margin-bottom: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        /* 4. Sections et cartes */
+        section:not(.hero) {
+            padding: 55px 8%;
+        }
+        
+       
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+@media (max-width: 600px) {
+    section[id] {
+        scroll-margin-top: 170px;
+    }
+}
+
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .muted {
+            color: #cbd5e1;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 24px;
+            border: 1px solid #334155;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            color: #93c5fd;
+            margin-bottom: 10px;
+        }
+
+        /* 5. Pied de page */
+        footer {
+            padding: 25px 8%;
+            text-align: center;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
+        }
+
+        /* 6. Adaptation aux petits écrans */
+        @media (max-width: 600px) {
+            header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .hero {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+            nav {
+                gap: 8px;
+           }
+
+            nav a {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            }
+            
+            .btn {
+                display: inline-block;
+                background: #38bdf8;
+                color: #0f172a;
+                padding: 12px 24px;
+                border-radius: 8px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .btn:hover {
+                background: #0f172a;
+                color: white;
+                transform: translateY(-3px);
+            }
+
+            #competences {
+                padding: 60px 20px;
+                text-align: center;
+            }
+
+            #competences h2 {
+                color: #38bdf8;
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+            .competence { 
+                background: #1e293b;
+                padding: 20px;
+                margin: 15px auto;
+                max-width: 500px;
+                border-radius: 12px;
+                border: 1px solid #38bdf8;
+                transition: 0.3s;
+            }
+
+            .competence:hover {
+                transform: translateY(-5px);
+                background: #334155;
+            }
+
+            .competence h3 {
+                color: #38bdf8;
+                margin-bottom: 10px;
+            }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a class="logo" href="#accueil">MonPortfolio.</a>
+
+        <nav aria-label="Navigation principale">
+            <a href="#accueil">Accueil</a>
+            <a href="#apropos">À propos</a>
+            <a href="#competences">Compétences</a>
+            <a href="#objectifs">Objectifs</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="accueil">
+            <p>BONJOUR, BIENVENUE SUR MON SITE</p>
+
+            <h1>Bonjour, moi c'est ZIE , futur Ingeniere en Cybersecurity.</h1>
+            <img src="images/profil.jpg" alt="Ma photo de profil" width="180">
+
+            <p class="description">
+                Je suis un développeur web en formation.
+                J'apprends à créer des sites modernes,
+                utiles et accessibles à tous.
+            </p>
+
+            <a class="button" href="#projets">
+                Découvrir mes projets
+            </a>
+        </section>
+
+        <section id="apropos">
+            <h2>À propos de moi</h2>
+
+            <p class="muted">
+                je me nome COULIBALY ZIE DRISSA Etuediant en RIT(Reséau Informatique et Telecommunication) BTS 2 a ETIC 2PLATEAUX<br>
+                Je débute dans le développement web.
+                Mon objectif est d'apprendre à programmer,
+                de réaliser mes propres projets et de
+                progresser chaque jour.
+            </p>
+        </section>
+
+         <section id="competences">
+            <h2>Mes compétences</h2>
+            <p>Je développe progressivement mes compétences en informatique.</p>
+
+    <div class="competence">
+        <h3>Reséau Informatique et Telecommunication</h3>
+        <p>Apprendre à concevoir et gérer les réseaux informatiques.</p>
+    </div>
+
+    <div class="competence">
+        <h3>HTML</h3>
+        <p>Créer la structure des pages web.</p>
+    </div>
+
+    <div class="competence">
+        <h3>CSS</h3>
+        <p>Donner du style et rendre les sites agréables.</p>
+    </div>
+</section>
+
+        <section id="competences">
+            <h2>Mes compétences</h2>
+
+            <p class="muted">
+                Voici les technologies que j'apprends.
+            </p>
+
+           <div class="card">
+             <article class="card">
+    <h3>Réseaux informatiques et télécommunications</h3>
+
+    <p class="muted">
+        Je me forme à la conception, à l'installation
+        et à l'administration des réseaux informatiques,
+        ainsi qu'aux technologies de télécommunication.
+    </p>
+
+    <ul>
+        <li>Architecture et câblage réseau</li>
+        <li>Configuration des routeurs et commutateurs</li>
+        <li>Adressage IP et protocoles réseau</li>
+        <li>Administration des systèmes et services réseau</li>
+        <li>Sécurité des réseaux informatiques</li>
+    </ul>
+</article>
+
+
+            <div class="cards">
+                <article class="card">
+                    <h3>HTML</h3>
+                    <p class="muted">
+                         J'apprends à créer la structure des pages web
+                        en utilisant le langage HTML.
+                    </p>
+                    <ul>
+                      <li>Structure d'une page HTML</li>
+                      <li>Titres, paragraphes et liens</li>
+                      <li>Insertion d'images</li>
+                      <li>Création de sections et de listes</li>
+                      <li>Création de formulaires simples</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3>CSS</h3>
+                      <p class="muted">
+                         J'apprends à mettre en forme les pages web
+                        pour créer des interfaces modernes et adaptées
+                        aux ordinateurs comme aux téléphones.
+                    </p>
+                 <ul>
+                     <li>Couleurs, polices et arrière-plans</li>
+                     <li>Marges et espacements</li>
+                     <li>Flexbox et mise en page</li>
+                     <li>Création de cartes et de boutons</li>
+                     <li>Adaptation aux petits écrans</li>
+                 </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="objectifs">
+            <h2>Mes objectifs</h2>
+            <p class="muted">
+              Mon objectif est de maîtriser la Conception et architecture, l'Installation et configuration, l'Administration et maintenance, la Sécurité des réseaux, la Veille et adaptation technologique, le HTML et css, afin
+              de créer des Labs, les installers, les configurers et de les securisers, de créer des sites web modernes et de développer
+              mes propres applications.
+              </p>
+
+            <div class="cards">
+                <article class="card">
+                    <h3>Projet 1 — COULIBALY.Dev</h3>
+                    <p class="muted">
+                        Mon premier site web personnel.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Projet 2 — À venir</h3>
+                    <p class="muted">
+                        Une future réalisation à présenter ici.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Me contacter</h2>
+
+            <p class="muted">
+                Tu peux m'envoyer un email à
+                <a href="mailto:zc761733@gmail.com">
+                    zc761733@gmail.com
+                </a>
+            </p>
+
+            <p style="margin-top: 20px;">
+                <button class="button" id="contactButton">
+                    Dis bonjour !
+                </button>
+            </p>
+
+            <p id="message" aria-live="polite"
+               style="margin-top: 15px; color: #93c5fd;">
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Mon Portfolio — Créé par moi-même.</p>
+    </footer>
+
+    <script>
+        const bouton = document.getElementById("contactButton");
+        const message = document.getElementById("message");
+
+        bouton.addEventListener("click", function () {
+            message.textContent =
+                "Merci pour ta visite ! Mon aventure web commence.";
+        });
+    </script>
+    
+<script>
+    document.querySelectorAll('nav a, .logo').forEach(lien => {
+        lien.addEventListener('click', function(e) {
+            const cible = document.querySelector(this.getAttribute('href'));
+
+            if (cible) {
+                e.preventDefault();
+
+                const depart = window.scrollY;
+                const arrivee = cible.getBoundingClientRect().top + window.scrollY;
+                const distance = arrivee - depart;
+                const duree = 2500; // Durée de l'animation en millisecondes
+                let debut = null;
+
+                function defiler(temps) {
+                    if (!debut) debut = temps;
+
+                    const progression = Math.min((temps - debut) / duree, 1);
+                    const douce = progression < 0.5
+                        ? 4 * progression * progression * progression
+                        : 1 - Math.pow(-2 * progression + 2, 3) / 2;
+
+                    window.scrollTo(0, depart + distance * douce);
+
+                    if (progression < 1) {
+                        requestAnimationFrame(defiler);
+                    }
+                }
+
+                requestAnimationFrame(defiler);
+            }
+        });
+    });
+</script>
+
+<script>
+    const liensMenu = document.querySelectorAll('nav a');
+
+    function actualiserMenuActif() {
+        const sections = document.querySelectorAll(
+            '#accueil, #apropos, #competences, #objectifs, #contact'
+        );
+
+        let sectionActuelle = '';
+
+        sections.forEach(section => {
+            const position = section.getBoundingClientRect().top;
+
+            if (position <= 150) {
+                sectionActuelle = section.id;
+            }
+        });
+
+        liensMenu.forEach(lien => {
+            lien.classList.toggle(
+                'actif',
+                lien.getAttribute('href') === '#' + sectionActuelle
+            );
+        });
+    }
+
+    window.addEventListener('scroll', actualiserMenuActif);
+    window.addEventListener('load', actualiserMenuActif);
+</script>
+
+
+
+</body>
+</html>
